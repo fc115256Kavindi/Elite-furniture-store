@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ELITE | Beyond Furniture to Art</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="header">
+    <div class="container navbar">
+      <div class="brand-left">
+        <img src="logo.jpg" alt="ELITE Logo" class="logo-img" />
+      </div>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="#home">Home</a>
+        <a href="#products">Products</a>
+        <a href="#cart">Cart</a>
+        <a href="#contact">Contact</a>
+        <a href="#custom-order">Custom Order</a>
+        <a href="#appointment">Appointment</a>
+        <a href="#newsletter">Newsletter</a>
+      </nav>
+
+      <div class="header-right">
+        <button class="cart-top-btn" onclick="scrollToCart()">
+          Cart (<span id="cartCount">0</span>)
+        </button>
+        <img src="logo.jpg" alt="ELITE Logo" class="logo-img" />
+        <button class="menu-btn" id="menuBtn">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero" id="home">
+    <div class="container hero-content">
+      <div class="hero-text">
+        <p class="hero-tag">ELITE FURNITURE COLLECTION</p>
+        <h1>Beyond Furniture to Art</h1>
+        <p>
+          Premium furniture for elegant spaces. Explore luxury style,
+          comfort, and professional interior beauty with ELITE.
+        </p>
+
+        <div class="hero-buttons">
+          <a href="#products" class="btn btn-primary">Explore Products</a>
+          <a href="#cart" class="btn btn-secondary">View Cart</a>
+        </div>
+
+        <div class="hero-features">
+          <div class="feature-box">
+            <h3>Luxury</h3>
+            <p>Premium Finish</p>
+          </div>
+          <div class="feature-box">
+            <h3>Modern</h3>
+            <p>Elegant Design</p>
+          </div>
+          <div class="feature-box">
+            <h3>Trusted</h3>
+            <p>Quality Service</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-logo-area">
+        <div class="hero-logo-square">
+          <img src="logo.jpg" alt="ELITE Logo" class="hero-logo-image" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section products" id="products">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-subtitle">Products</span>
+        <h2>Our Furniture Collection</h2>
+        <p>Product pictures and details are loaded from your backend database.</p>
+      </div>
+
+      <div class="toolbar">
+        <button class="btn btn-outline" onclick="loadProducts()">Reload Products</button>
+      </div>
+
+      <div class="product-grid" id="productGrid"></div>
+    </div>
+  </section>
+
+  <section class="section cart-section" id="cart">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-subtitle">Shopping Cart</span>
+        <h2>Your Selected Items</h2>
+        <p>Products added from the furniture collection.</p>
+      </div>
+
+      <div class="cart-box">
+        <div id="cartItems">
+          <p class="placeholder-text">Your cart is empty.</p>
+        </div>
+
+        <div class="cart-summary">
+          <h3>Total: LKR <span id="cartTotal">0.00</span></h3>
+          <button class="btn btn-outline" onclick="clearCart()">Clear Cart</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section form-section" id="contact">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-subtitle">Contact</span>
+        <h2>Send a Message</h2>
+        <p>Your contact form is connected to the backend table.</p>
+      </div>
+
+      <form class="elite-form" id="contactForm">
+        <input type="text" id="contactName" placeholder="Your Name" required />
+        <input type="email" id="contactEmail" placeholder="Your Email" required />
+        <input type="text" id="contactSubject" placeholder="Subject" required />
+        <textarea id="contactMessage" rows="5" placeholder="Your Message" required></textarea>
+        <button type="submit" class="btn btn-primary">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <section class="section form-section alt-bg" id="custom-order">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-subtitle">Custom Order</span>
+        <h2>Request Custom Furniture</h2>
+        <p>This form saves data to the custom orders table.</p>
+      </div>
+
+      <form class="elite-form two-col" id="customOrderForm">
+        <input type="text" id="coName" placeholder="Customer Name" required />
+        <input type="email" id="coEmail" placeholder="Email" required />
+        <input type="text" id="coPhone" placeholder="Phone" required />
+        <input type="text" id="coFurnitureType" placeholder="Furniture Type" required />
+        <input type="text" id="coMaterial" placeholder="Preferred Material" required />
+        <input type="text" id="coColor" placeholder="Preferred Color" required />
+        <input type="text" id="coDimensions" placeholder="Dimensions" required />
+        <input type="number" id="coBudget" placeholder="Estimated Budget" required />
+        <textarea id="coDetails" rows="5" placeholder="Design Details" required></textarea>
+        <button type="submit" class="btn btn-primary">Submit Custom Order</button>
+      </form>
+    </div>
+  </section>
+
+  <section class="section form-section" id="appointment">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-subtitle">Appointment</span>
+        <h2>Book Appointment</h2>
+        <p>This form saves data to the appointment requests table.</p>
+      </div>
+
+      <form class="elite-form two-col" id="appointmentForm">
+        <input type="text" id="apName" placeholder="Customer Name" required />
+        <input type="email" id="apEmail" placeholder="Email" required />
+        <input type="text" id="apPhone" placeholder="Phone" required />
+        <input type="date" id="apDate" required />
+        <input type="time" id="apTime" required />
+        <input type="text" id="apPurpose" placeholder="Purpose" required />
+        <textarea id="apNote" rows="5" placeholder="Additional Note"></textarea>
+        <button type="submit" class="btn btn-primary">Book Appointment</button>
+      </form>
+    </div>
+  </section>
+
+  <section class="section form-section alt-bg" id="newsletter">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-subtitle">Newsletter</span>
+        <h2>Subscribe for Updates</h2>
+        <p>This form saves data to the newsletter subscribers table.</p>
+      </div>
+
+      <form class="elite-form newsletter-form" id="newsletterForm">
+        <input type="email" id="newsletterEmail" placeholder="Enter your email" required />
+        <button type="submit" class="btn btn-primary">Subscribe</button>
+      </form>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer-content">
+      <div class="footer-brand">
+        <img src="logo.jpg" alt="ELITE Logo" class="footer-logo" />
+        <h3>ELITE</h3>
+        <p>Beyond Furniture to Art</p>
+      </div>
+
+      <div>
+        <h4>Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#products">Products</a></li>
+          <li><a href="#cart">Cart</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Contact</h4>
+        <p>elitefurniture@gmail.com</p>
+        <p>+94 77 123 4567</p>
+        <p>Sri Lanka</p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      © 2026 ELITE. All Rights Reserved.
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
