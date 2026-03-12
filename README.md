@@ -169,6 +169,3 @@ University of Sri Jayewardenepura
 B.Comp. Hons in Computer Science
 License
 This project is developed for educational and academic purposes.
-If you want, I can also give you a much more impressive README version used for
-GitHub portfolios (with screenshots, UI previews, architecture diagrams, and badges).
-That version looks very professional for MSc projects and job portfolios.
